@@ -421,7 +421,7 @@ svg {
 }
 #score-screen .action-button,
 #phase2-score-screen .action-button {
-    font-size: 1.rem !important;
+    font-size: 2.2rem !important;
     /* mantém borda e sombra já existentes */
 }
 
@@ -707,6 +707,52 @@ svg {
     height: 90px;
     margin: 0 6px;
     vertical-align: middle;
+}
+
+/* Botão de pular tempo na fase 2 */
+.phase2-skip-wait-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+    transition: opacity 0.2s, transform 0.2s;
+}
+.phase2-skip-wait-btn:hover {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* Tooltip customizado para o botão de pular tempo */
+.phase2-skip-wait-btn[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: 90px;
+    right: 0;
+    left: auto;
+    background: #222;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    white-space: pre-line;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    pointer-events: none;
+    width: 320px;
+    max-width: 90vw;
+}
+.phase2-skip-wait-btn[title] {
+    position: relative;
 }
 
 /* Remover responsivo: escala o .game-container para caber na tela mantendo 16:9 */
