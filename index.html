@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atitudes Sustentáveis - O Jogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="responsive-wrapper">
+        <div class="game-container">
+            <div id="name-screen" class="screen active">
+                <div class="top-bar">
+                    <button id="mic-name" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <div></div>
+                </div>
+                <div id="name-input-container">
+                    <h2>Escreva seu nome completo</h2>
+                    <input type="text" id="player-name-input" placeholder="Seu nome aqui...">
+                    <p id="name-error">Por favor, escreva seu nome.</p>
+                    <button id="start-game-button" class="action-button">Começar</button>
+                </div>
+            </div>
+            
+            <div id="menu-screen" class="screen">
+                <!-- Top-bar do menu fora da tabela, alinhada à esquerda -->
+                <div class="top-bar">
+                    <button id="mic-menu" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="menu-table-container">
+                    <div>
+                        <div class="menu-table-custom">
+                            <div class="menu-title">
+                                <span>Atitudes<br>Sustentáveis</span>
+                            </div>
+                            <div class="menu-row">
+                                <button id="fase1-button" class="menu-table-button fase1-btn">
+                                    <span class="menu-btn-icon">&#127918;</span>
+                                    <span class="menu-btn-label">fase 1</span>
+                                </button>
+                                <span class="menu-btn-desc">responda as perguntas e<br>ganhe estrelas</span>
+                            </div>
+                            <div class="menu-row">
+                                <button id="fase2-button" class="menu-table-button fase2-btn">
+                                    <span class="menu-btn-icon">&#127918;</span>
+                                    <span class="menu-btn-label">fase 2</span>
+                                </button>
+                                <span class="menu-btn-desc">ajude a cuidar de uma<br>horta</span>
+                            </div>
+                        </div>
+                        <div class="creators-info">
+                            <p>Versão 1.0</p>
+                            <p>Criadores: Abner Sato, Amanda Kussaba, Beatriz Silva, Carlos Tito</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="intro-screen-1" class="screen">
+                <div class="top-bar">
+                    <button id="mic-intro1" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn-intro1" class="icon-button" style="margin-left:auto;">
+                        <!-- Ícone de engrenagem -->
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="intro-content"></div>
+                <button id="intro1-back" class="nav-arrow" style="left: 1rem;">&#11164;</button>
+                <button id="intro1-next" class="nav-arrow" style="right: 1rem;">&#11166;</button>
+            </div>
+
+            <div id="intro-screen-2" class="screen">
+                <div class="top-bar">
+                    <button id="mic-intro2" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn-intro2" class="icon-button" style="margin-left:auto;">
+                        <!-- Ícone de engrenagem -->
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="intro-content"></div>
+                <button id="intro2-back" class="nav-arrow" style="left: 1rem;">&#11164;</button>
+                <button id="intro2-next" class="nav-arrow" style="right: 1rem;">&#11166;</button>
+            </div>
+
+            <div id="quiz-screen" class="screen">
+                <div class="top-bar">
+                    <button id="mic-quiz" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn-quiz" class="icon-button" style="margin-left:auto;">
+                        <!-- Ícone de engrenagem -->
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <button id="quiz-back" class="nav-arrow" style="left: 1rem; display: none;">&#11164;</button>
+                <div id="question-text-bubble"></div>
+                <div id="quiz-feedback" style="min-height: 3.5rem; margin: 1rem 0; font-size: 2.2rem; display: flex; align-items: center; justify-content: center;"></div>
+                <div id="answers-container"></div>
+            </div>
+            
+            <div id="score-screen" class="screen">
+                <div class="top-bar">
+                    <button id="mic-score" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn-score1" class="icon-button" style="margin-left:auto;">
+                        <!-- Ícone de engrenagem -->
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="score-content">
+                    <h2 id="score-display"></h2>
+                    <div id="stars-container"></div>
+                    <p id="attempts-display"></p>
+                </div>
+                <button id="restart-phase1-button" class="action-button">Jogar Novamente</button>
+                <button id="back-to-menu-button1" class="action-button" style="background-color: #f44336;">Voltar ao Menu</button>
+            </div>
+
+            <div id="phase2-intro-screen" class="screen">
+                <div class="top-bar">
+                    <button id="mic-phase2-intro" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn-phase2-intro" class="icon-button" style="margin-left:auto;">
+                        <!-- Ícone de engrenagem -->
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <button id="phase2-intro-back" class="nav-arrow" style="left: 1rem;">&#11164;</button>
+                <button id="phase2-intro-next" class="nav-arrow" style="right: 1rem;">&#11166;</button>
+            </div>
+
+            <div id="phase2-game-screen" class="screen">
+                <div class="top-bar">
+                    <button id="mic-phase2-game" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn-phase2-game" class="icon-button" style="margin-left:auto;">
+                        <!-- Ícone de engrenagem -->
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flowers-row">
+                    <img src="img/flor1.png" alt="Flor 1" class="flower-on-ground">
+                    <img src="img/flor2.png" alt="Flor 2" class="flower-on-ground">
+                    <img src="img/flor3.png" alt="Flor 3" class="flower-on-ground">
+                </div>
+                <div class="plant-holes">
+                    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                </div>
+                <!-- Novo: ground.png como camada fixa no canto inferior -->
+                <img src="img/ground.png" alt="Grama e Solo" class="phase2-ground-bottom">
+            </div>
+
+            <div id="phase2-score-screen" class="screen">
+                <div class="top-bar">
+                    <button id="mic-phase2-score" class="icon-button">
+                        <svg width="60" height="60" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <rect x="2" y="12" width="12" height="14" fill="black"/>
+                                <polygon points="14,12 22,6 22,32 14,26" fill="black"/>
+                                <path d="M25 13 Q29 19 25 25" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M28 10 Q34 19 28 28" stroke="black" stroke-width="2" fill="none"/>
+                                <path d="M32 7 Q40 19 32 31" stroke="black" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="settings-btn" class="icon-button">
+                        <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+                            <g>
+                                <circle cx="50" cy="50" r="22" stroke="black" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="10" fill="black"/>
+                                <g stroke="black" stroke-width="8" stroke-linecap="round">
+                                    <line x1="50" y1="8" x2="50" y2="25"/>
+                                    <line x1="50" y1="75" x2="50" y2="92"/>
+                                    <line x1="8" y1="50" x2="25" y2="50"/>
+                                    <line x1="75" y1="50" x2="92" y2="50"/>
+                                    <line x1="22" y1="22" x2="34" y2="34"/>
+                                    <line x1="78" y1="22" x2="66" y2="34"/>
+                                    <line x1="22" y1="78" x2="34" y2="66"/>
+                                    <line x1="78" y1="78" x2="66" y2="66"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="phase2-score-content">
+                    <div class="score-board-left">
+                        <div class="score-board-placa">
+                            <span id="score-board-left-text"></span>
+                        </div>
+                    </div>
+                    <div class="score-board-right">
+                        <div class="score-board-placa">
+                            <span id="score-board-right-text"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="restart-phase2-button" class="action-button">Jogar Novamente</button>
+                <button id="back-to-menu-button2" class="action-button" style="background-color: #f44336;">Voltar ao Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Opções -->
+    <div id="options-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:999; align-items:center; justify-content:center;">
+        <div style="background:#fff; color:#222; border-radius:32px; padding:3rem 2.5rem; min-width:320px; max-width:90vw; box-shadow:0 8px 32px rgba(0,0,0,0.18); display:flex; flex-direction:column; gap:2.5rem; align-items:center; position:relative;">
+            <button id="close-options-modal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:4rem; cursor:pointer;">&times;</button>
+            <h2 style="font-family:'Lilita One',cursive; font-size:2.5rem; margin-bottom:1rem;">Opções</h2>
+            <div style="width:100%; display:flex; flex-direction:column; gap:1.5rem;">
+                <label style="font-size:1.5rem; font-family:'Lilita One',cursive;">
+                    Volume da voz:
+                    <input id="voice-volume" type="range" min="0" max="1" step="0.01" value="1" style="width:180px; vertical-align:middle;">
+                    <span id="voice-volume-value">100%</span>
+                </label>
+                <button id="restart-current-phase" class="action-button" style="background:#b6e24b;">Reiniciar Fase</button>
+                <button id="back-to-menu-from-options" class="action-button" style="background:#f44336;">Voltar ao Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

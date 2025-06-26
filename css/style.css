@@ -1,0 +1,737 @@
+/* CSS Reset and Basic Setup */
+:root {
+    --green-correct: #28a745;
+    --red-incorrect: #dc3545;
+    --yellow-hint: #ffc107;
+    --white-text: #ffffff;
+    --dark-text: #000000;
+    --button-bg: #4CAF50;
+    --sky-blue-bg: #87CEEB;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Lilita One', cursive;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout responsivo: mantém proporção 16:9, escala tudo proporcionalmente e centraliza */
+html, body {
+    width: 100vw;
+    height: 100vh;
+    min-width: 0;
+    min-height: 0;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Lilita One', cursive;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--sky-blue-bg);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Wrapper para manter tamanho fixo 1280x720 (720p) */
+.responsive-wrapper {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: var(--sky-blue-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-text);
+    box-sizing: border-box;
+    transform-origin: top left;
+}
+
+/* Mantém todos os elementos internos com tamanho relativo ao container */
+.screen,
+#menu-screen,
+#quiz-screen,
+#score-screen,
+#phase2-score-screen,
+#phase2-game-screen,
+#phase2-intro-screen {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.menu-table-custom,
+.score-content,
+.phase2-score-content,
+.intro-content,
+.phase2-intro-content {
+    max-width: 1280px;
+}
+
+button,
+input,
+.menu-table-button,
+.action-button {
+    font-size: inherit;
+}
+
+img,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    box-sizing: border-box;
+}
+
+/* Screen Styles */
+.screen {
+    width: 100%; height: 100%; position: absolute; top: 0; left: 0; display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    padding: 1rem; text-align: center; overflow: hidden;
+}
+.screen.active { display: flex; }
+
+/* Menu, Intro, Score Screens Text Style */
+.intro-content, .score-content, .phase2-intro-content, .phase2-score-content {
+    font-size: clamp(1.8rem, 5vw, 3rem); padding: 1rem; line-height: 1.3;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+/* Remove text shadow from empty containers */
+#intro-screen-1 .intro-content, #intro-screen-2 .intro-content {
+    text-shadow: none;
+}
+
+/* Menu Screen */
+#menu-screen {
+    background-image: url('../img/bg-menu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Remover estilos antigos dos botões do menu */
+#menu-screen .button-container { display: none; }
+.menu-button { display: none; }
+
+/* Esconde tabela antiga */
+.menu-table, .menu-table tr, .menu-table td { display: none !important; }
+
+/* Nova tabela customizada do menu - ainda maior */
+.menu-table-custom {
+    background: #fff;
+    border-radius: 18px 12% 24px 24px/20px 24px 18px 24px; /* ainda menor */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 1.2rem 0.8rem 0.8rem 0.8rem; /* ainda menor */
+    min-width: 180px; /* ainda menor */
+    max-width: 60vw;  /* ainda menor */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem; /* ainda menor */
+}
+.menu-title {
+    font-family: 'Lilita One', cursive;
+    font-size:5.2rem;
+    color: #111;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    text-shadow: none;
+}
+.menu-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+.menu-table-button {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 270px;
+    padding: 1.5rem 3rem 1.5rem 2.5rem;
+    font-size: 4.7rem;
+    font-family: 'Lilita One', cursive;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    transition: background 0.2s, transform 0.2s;
+    font-weight: bold;
+    outline: none;
+}
+.menu-btn-icon {
+    font-size: 3.2rem;
+    margin-right: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+.menu-btn-label {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+.menu-btn-desc {
+    font-size: 2.0rem;
+    color: #222;
+    text-align: left;
+    font-family: 'Lilita One', cursive;
+    line-height: 1.2;
+    margin-left: 0.2rem;
+    min-width: 220px;
+    max-width: 340px;
+    font-weight: normal;
+}
+.fase1-btn {
+    background: #7ee0e6;
+    color: #111;
+}
+.fase1-btn:hover {
+    background: #5fc6cc;
+    color: #111;
+    transform: translateY(-2px) scale(1.03);
+}
+.fase2-btn {
+    background: #b6e24b;
+    color: #111;
+}
+.fase2-btn:hover {
+    background: #9fd13a;
+    color: #111;
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Centraliza a tabela no menu */
+.menu-table-container {
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    padding-right: 0; /* remove o deslocamento para a direita */
+    margin-left: 200px; /* move 20px para a direita */
+}
+
+/* Versão e criadores - maior e mais colado na borda */
+.creators-info {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 1.1rem;
+    text-align: right;
+    color: #000; /* alterado para preto */
+    text-shadow: none; /* remove sombra para melhor contraste */
+    padding: 0.5rem 0.8rem;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'Lilita One', cursive;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    min-width: 0;
+    max-width: 90vw;
+    margin: 0;
+}
+
+/* Top Bar & Nav */
+.top-bar { position: absolute; top: 1rem; width: 100%; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 20; }
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100px !important;
+    height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+    font-size: 3.5rem;
+    color: #111;
+    filter: none;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+}
+.icon-button svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    display: block;
+}
+.nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.2); border: none; border-radius: 50%; cursor: pointer; width: 50px; height: 50px; font-size: 1.5rem; color: white; z-index: 10; }
+#arrow-left { left: 1rem; }
+#arrow-right { right: 1rem; }
+
+/* Phase 1: Quiz */
+#quiz-screen {
+    background-image: url('../img/fundo_quiz.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#quiz-screen { justify-content: flex-start; overflow-y: auto; }
+#question-text-bubble { margin-top: 5rem; width: 90%; max-width: 800px; background-color: rgba(255, 255, 255, 0.9); color: var(--dark-text); text-shadow: none; padding: 1rem 1.5rem; border-radius: 50px; font-size: clamp(1.6rem, 3.5vw, 2.5rem); box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 5; }
+#answers-container { width: 100%; max-width: 800px; display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-top: 1rem; margin-bottom: 1rem; }
+.answer-button { padding: 1rem; font-size: clamp(1.3rem, 2.6vw, 1.9rem); background-color: rgba(255, 255, 255, 0.9); color: #333; border: none; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; text-shadow: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); width: 90%; text-align: left; display: flex; align-items: center; }
+.answer-button:hover { background-color: white; transform: translateY(-5px); }
+.answer-button.correct { background-color: var(--green-correct); color: var(--white-text); }
+.answer-button.incorrect { background-color: var(--red-incorrect); color: var(--white-text); }
+.answer-button.hint { box-shadow: 0 0 20px 5px var(--yellow-hint); }
+#quiz-feedback {
+    min-height: 3.5rem;
+    margin: 1rem 0;
+    font-size: 1.6rem; /* aumentado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+    font-weight: bold;
+}
+
+/* Phase 2: Whack-a-Mole */
+#phase2-game-screen { 
+    background-image: url('../img/bg-phase2.png'); /* mantenha o fundo se desejar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+/* Remover grama e flores da fase 2 */
+.grass-overlay,
+.static-plants-container {
+    display: none !important;
+}
+.plant-holes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: space-around; align-items: flex-end; padding-bottom: 15%; }
+.hole { position: relative; width: 150px; height: 150px; display: flex; justify-content: center; align-items: center; }
+.plant-item {
+    position: absolute;
+    /* Começa bem abaixo do solo (ground está em bottom:-50px, height do ground ~100px) */
+    bottom: -170px; /* Fica escondido atrás do ground */
+    width: 180px;    /* aumentado */
+    height: 180px;   /* aumentado */
+    background-color: #fff;
+    border: 4px solid #555;
+    border-radius: 30px; /* mais arredondado */
+    cursor: pointer;
+    transition: bottom 0.5s cubic-bezier(.4,1.7,.6,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;   /* aumentado */
+    z-index: 21; /* acima do ground */
+}
+.plant-item.visible {
+    /* Posição final: logo acima do solo (ground) */
+    bottom: 60px;
+}
+.plant-item-icon {
+    width: 140px;    /* aumentado */
+    height: 140px;   /* aumentado */
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.plant-item-icon img, .plant-item-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.plant-item-text {
+    font-size: 1.5rem; /* aumentado */
+    color: #333;
+    text-shadow: none;
+    margin-top: 0.2rem;
+    font-family: 'Lilita One', cursive;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.1;
+    word-break: break-word;
+}
+.feedback-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; display: flex; justify-content: center; align-items: center; font-size: 80px; color: white; opacity: 0; transition: opacity 0.2s; z-index: 6; pointer-events: none; }
+.feedback-overlay.show { opacity: 0.9; }
+.feedback-overlay.correct { background-color: rgba(40, 167, 69, 0.8); }
+.feedback-overlay.incorrect { background-color: rgba(220, 53, 69, 0.8); }
+
+/* Score Screens */
+#score-screen {
+    background-image: url('../img/bg-score.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#score-screen, #phase2-score-screen { overflow-y: auto; }
+#stars-container { font-size: clamp(2.5rem, 8vw, 4.5rem); color: #FFD700; margin: 1rem 0; }
+.action-button { margin: 0.5rem; padding: 1rem 1.5rem; font-size: 1.1rem; cursor: pointer; border: none; border-radius: 20px; background-color: var(--button-bg); color: var(--white-text); font-family: 'Lilita One', cursive; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+/* Alteração sugerida */
+.action-button {
+    border: 3px solid #000 !important;
+    color: #fff;
+   
+}
+#score-screen .action-button,
+#phase2-score-screen .action-button {
+    font-size: 1.rem !important;
+    /* mantém borda e sombra já existentes */
+}
+
+/* Name Screen */
+#name-screen {
+    background-image: url('../img/bg-nome.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#name-input-container {
+    background-color: rgba(255, 255, 255, 0.96);
+    padding: 5rem 3rem;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    color: #333;
+    text-shadow: none;
+    width: 99%;
+    max-width: 1000px;   /* diminuído 100px */
+    min-height: 320px;   /* diminuído 100px */
+    box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+}
+#name-input-container h2 {
+    font-size: 3.2rem;
+}
+#player-name-input {
+    padding: 2rem;
+    border-radius: 22px;
+    border: 2px solid #ccc;
+    width: 98%;
+    font-size: 2.6rem;
+    text-align: center;
+}
+#name-error {
+    color: #dc3545;
+    font-size: 2.8rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+/* Modal de opções */
+#options-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+#options-modal > div {
+    background: #fff;
+    color: #222;
+    border-radius: 32px;
+    padding: 3rem 2.5rem;
+    min-width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+}
+#close-options-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 20rem; /* bem maior para melhor visibilidade */
+    cursor: pointer;
+    z-index: 10;
+    color: #222;
+}
+#close-options-modal:hover {
+    color: #f44336;
+}
+#options-modal .action-button {
+    font-size: 2.2rem !important;
+    /* mantém borda e sombra já existentes */
+}
+#intro-screen-1 {
+    background-image: url('../img/tela_inicio1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#intro-screen-2 {
+    background-image: url('../img/tela_inicio2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#phase2-intro-screen {
+    background-image: url('../img/bg-phase2-intro.png'); /* coloque sua imagem aqui */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Flor fixa sobre o solo na fase 2 */
+.flower-ground-container {
+    position: absolute;
+    left: 50%;
+    bottom: 20%; /* logo acima da grama */
+    transform: translateX(-50%);
+    z-index: 12;
+    pointer-events: none;
+}
+.flower-on-ground {
+    width: auto;
+    height: 300px;
+    max-height: 300px;
+    display: block;
+    object-fit: contain;
+    position: relative;
+    bottom: -170px; /* começa escondida abaixo do solo */
+    opacity: 0;
+    transition: bottom 0.7s cubic-bezier(.4,1.7,.6,1), opacity 0.4s;
+}
+
+/* Flor sobe */
+.flower-on-ground.up {
+    bottom: 0;
+    opacity: 1;
+}
+
+/* Flor desce */
+.flower-on-ground.down {
+    bottom: -170px;
+    opacity: 0;
+}
+
+/* Delay para cada flor subir em sequência */
+.flowers-row .flower-on-ground:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.flowers-row .flower-on-ground:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.flowers-row .flower-on-ground:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* Linha de 3 flores alinhadas com os balões */
+.flowers-row {
+    position: absolute;
+    left: 0;
+    /* Coloca as flores logo acima da grama */
+    bottom: 50px; /* 80px + 50px = 130px */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 19; /* entre o fundo (bg-phase2) e a grama (ground.png) */
+    pointer-events: none;
+    height: 160px;
+    transform: none;
+}
+
+/* Balões 10px acima das flores */
+#phase2-game-screen .plant-holes {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    /* Aproxima os balões das flores em 30px */
+    top: unset;
+    bottom: calc(300px - 30px); /* era 300px, agora 270px */
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 22; /* acima das flores */
+    padding-bottom: 0;
+}
+
+/* Remover camada de grama/solo antiga */
+.phase2-foreground-ground {
+    display: none !important;
+}
+
+/* Novo: ground.png fixa no canto inferior da fase 2 */
+.phase2-ground-bottom {
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    width: 100vw;
+    height: auto;
+    z-index: 20;
+    pointer-events: none;
+    /* Ajuste a altura conforme necessário */
+}
+
+/* Ajuste para a tela de placar da fase 2 ter o mesmo layout das outras */
+#phase2-score-screen {
+    background-image: url('../img/bg-score-horta.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.phase2-score-content {
+    font-size: clamp(1.1rem, 2vw, 1.7rem); /* fonte menor */
+    padding: 1rem;
+    line-height: 1.3;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    height: 350px;
+    margin-bottom: 0;
+    margin-top: 3.5rem;
+    position: relative;
+}
+
+.score-board-left, .score-board-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.score-board-placa {
+    background: url('../img/placa.png') no-repeat center center;
+    background-size: contain;
+    width: 340px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.25rem;
+    color: #2d1a00;
+    text-align: center;
+    text-shadow: none;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.18));
+    position: relative;
+}
+
+#score-board-left-text, #score-board-right-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.8rem; /* ainda maior */
+    font-family: 'Lilita One', cursive;
+    color: #2d1a00;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: none;
+    word-break: break-word;
+    gap: 0.7rem;
+    margin-left: -10px;
+}
+
+/* Alinha as carinhas horizontalmente */
+#score-board-left-text .score-faces,
+#score-board-right-text .score-faces {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Aumenta o tamanho dos emojis/carinha */
+#score-board-left-text .score-faces svg,
+#score-board-right-text .score-faces svg {
+    width: 90px;
+    height: 90px;
+    margin: 0 6px;
+    vertical-align: middle;
+}
+
+/* Remover responsivo: escala o .game-container para caber na tela mantendo 16:9 */
+@media (min-aspect-ratio: 16/9) {
+    .responsive-wrapper {
+        width: 1280px;
+        height: 720px;
+    }
+    .game-container {
+        width: 1280px;
+        height: 720px;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .responsive-wrapper {
+        width: 1280px;
+        height: 720px;
+    }
+    .game-container {
+        width: 1280px;
+        height: 720px;
+    }
+}
+
+/* Garante que não haja scroll */
+body, html, .responsive-wrapper {
+    overflow: hidden !important;
+}
