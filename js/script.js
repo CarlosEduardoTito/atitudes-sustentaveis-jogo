@@ -563,3 +563,38 @@ optionsModal.addEventListener('click', function(e) {
 
 // Initialize speech synthesis on load
 initSpeechSynthesis();
+
+// Botão de pular tempo (skip wait) na fase 2
+const phase2SkipWaitBtn = document.getElementById('phase2-skip-wait-btn');
+if (phase2SkipWaitBtn) {
+    phase2SkipWaitBtn.addEventListener('click', () => {
+        // Verifica se todos os itens bons já foram clicados
+        const holes = Array.from(document.querySelectorAll('.hole'));
+        let allGoodsFound = true;
+        holes.forEach(hole => {
+            const plantItem = hole.querySelector('.plant-item');
+            if (plantItem && plantItem.dataset.type === 'good') {
+                allGoodsFound = false;
+            }
+        });
+        if (allGoodsFound) {
+            // Remove imediatamente todos os itens ruins restantes
+            holes.forEach((hole, idx) => {
+                const plantItem = hole.querySelector('.plant-item');
+                if (plantItem && plantItem.dataset.type === 'bad') {
+                    clearTimeout(parseInt(plantItem.dataset.timeoutId));
+                    hidePlant(plantItem, true, idx);
+                }
+            });
+        } else {
+            // Feedback opcional: pode falar ou piscar o botão
+            speak("Você ainda não achou todas as coisas boas.");
+            phase2SkipWaitBtn.style.transform = "scale(1.15)";
+            setTimeout(() => { phase2SkipWaitBtn.style.transform = ""; }, 400);
+        }
+    });
+    // Narração do tooltip ao passar o mouse
+    phase2SkipWaitBtn.addEventListener('mouseenter', () => {
+        speak("Se já achou todas as coisas boas, clique aqui para as coisas ruins sumirem mais rápido.");
+    });
+}
